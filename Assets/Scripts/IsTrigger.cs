@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyCube : MonoBehaviour
+public class IsTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,14 +13,13 @@ public class DestroyCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Capsule"))
-        {
-            Destroy(this.gameObject);
-        }
+        // Destroy everything that leaves the trigger
+        Destroy(other.gameObject);
     }
+    
 }
