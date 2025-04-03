@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CapsuleMovement : MonoBehaviour
 {
-    public float jumpForce = 5f;
+    public float jumpForce = 8f;  // Aumentado para asegurar el salto
     public float speed = 5f;
 
     private Rigidbody rb;
@@ -41,16 +41,28 @@ public class CapsuleMovement : MonoBehaviour
 
     private void Jump()
     {
-
+        if (canJump && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Espacio pulsado, intentando saltar");
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Ahora usa IMPULSE
+            canJump = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Debug.Log("Tocando el suelo, puede saltar");
+            canJump = true;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            canJump = false;
+        }
     }
 }
