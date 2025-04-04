@@ -346,8 +346,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.02093238, y: -0.9592371, z: 0.07382409, w: 0.2719855}
+  m_LocalPosition: {x: 4.5904202, y: 2.5990348, z: -2.906508}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 1548745283}
   - component: {fileID: 1548745282}
   - component: {fileID: 1548745286}
+  - component: {fileID: 1548745287}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -588,7 +589,7 @@ Transform:
   m_GameObject: {fileID: 1548745281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.42, y: 0, z: 0}
+  m_LocalPosition: {x: -2.52, y: 0, z: -15.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -603,9 +604,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1548745281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3804d305bfbbe4344b05b55b72fff740, type: 3}
+  m_Script: {fileID: 11500000, guid: a6429107f43cf6b409c16094e7bb8962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 8
+  speed: 5
+--- !u!54 &1548745287
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548745281}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1637362877
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +650,7 @@ GameObject:
   - component: {fileID: 1637362878}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,7 +736,7 @@ Transform:
   m_GameObject: {fileID: 1637362877}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.18, z: 0}
+  m_LocalPosition: {x: -2.71, y: -1.18, z: -13.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

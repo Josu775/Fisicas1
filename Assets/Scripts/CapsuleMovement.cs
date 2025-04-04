@@ -6,7 +6,7 @@ public class CapsuleMovement : MonoBehaviour
     public float speed = 5f;
 
     private Rigidbody rb;
-    private bool canJump;
+    private bool canJump = true;
 
     void Start()
     {
@@ -44,14 +44,14 @@ public class CapsuleMovement : MonoBehaviour
         if (canJump && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Espacio pulsado, intentando saltar");
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Ahora usa IMPULSE
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             canJump = false;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Tocando el suelo, puede saltar");
             canJump = true;
@@ -60,7 +60,7 @@ public class CapsuleMovement : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             canJump = false;
         }
