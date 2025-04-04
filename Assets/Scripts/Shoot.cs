@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+
+    public GameObject bulletPrefab;
+    public float force = 5000;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +16,6 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
