@@ -16,6 +16,19 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)) // Clic izquierdo del ratón
+        {
+            ShootBullet();
+        }
+    }
 
+    void ShootBullet()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.forward, transform.rotation);
+
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * force);
+
+        Destroy(bullet, 5f);
     }
 }
